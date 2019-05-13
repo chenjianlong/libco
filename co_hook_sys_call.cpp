@@ -57,11 +57,6 @@ struct rpchook_t
 	struct timeval read_timeout;
 	struct timeval write_timeout;
 };
-static inline pid_t GetPid()
-{
-	char **p = (char**)pthread_self();
-	return p ? *(pid_t*)(p + 18) : getpid();
-}
 static rpchook_t *g_rpchook_socket_fd[ 102400 ] = { 0 };
 
 typedef int (*socket_pfn_t)(int domain, int type, int protocol);
